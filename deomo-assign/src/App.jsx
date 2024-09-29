@@ -11,12 +11,16 @@ const App = () => {
     <Provider store={store}>
       <div>
         <h1>Product Store</h1>
+        
         <SearchBar />
+        
+        <CategorySearch/>
+        
         
         <CategoryList/>
       
         <ProductList />
-        <CategorySearch/>
+       
       </div>
     </Provider>
   );

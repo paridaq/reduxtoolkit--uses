@@ -11,6 +11,8 @@ const CategoryList = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
+  const categoriesArray = Object.values(categories);
+
   const handleCategoryClick = (category) => {
     dispatch(setCategory(category));
     dispatch(resetProducts()); // Reset products on category change
@@ -21,13 +23,13 @@ const CategoryList = () => {
       <h3>Categories</h3>
       <ul>
         <li onClick={() => handleCategoryClick('')}>All</li>
-        {categories.map((category) => (
+        {categoriesArray.map((category) => (
           <li
             key={category.slug}
             onClick={() => handleCategoryClick(category)}
            // style={{ fontWeight: category === selectedCategory ? 'bold' : 'normal' }}
           >
-            <option >{category.name}</option>
+            <option >{category.slug}</option>
           </li>
         ))}
       </ul>

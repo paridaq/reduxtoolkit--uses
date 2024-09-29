@@ -16,6 +16,7 @@ const {products} = useSelector((state)=>state.products)
   dispatch(fetchCategories
   )
   }, [dispatch]); // Runs once when the component mounts
+  const categoriesArray = Object.values(categories);
 
   
   
@@ -30,7 +31,7 @@ const {products} = useSelector((state)=>state.products)
     <div>
       <h2>Categories</h2>
       <div>
-        {categories.map((category) => (
+        {categoriesArray.map((category) => (
           <button key={category.id} onClick={() => handleCategoryClick(category.name)}>
             {category.name} {/* Adjust this based on the API response */}
           </button>
